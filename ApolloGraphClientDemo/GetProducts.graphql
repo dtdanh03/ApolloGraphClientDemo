@@ -1,0 +1,12 @@
+fragment ProductDetail on Product {
+Brand
+Price
+}
+
+query GetProduct{
+products {
+Name
+MainImageUrl
+...ProductDetail
+}
+}
