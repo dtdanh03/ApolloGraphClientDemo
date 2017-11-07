@@ -4,7 +4,7 @@
 
 .idea
 
-## macOS  
+## macOS
 *.DS_Store
 .AppleDouble
 .LSOverride
@@ -12,6 +12,9 @@
 ## Build generated
 build/
 DerivedData/
+
+## Carthage
+Carthage/
 
 ## Various settings
 *.pbxuser
