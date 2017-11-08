@@ -12,7 +12,7 @@ import Apollo
 class ViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
-    var products = [GetProductQuery.Data.Product]()
+    var products = [GetProductQuery.Data.ProductList.Product]()
     var productWatcher: GraphQLQueryWatcher<GetProductQuery>?
     let cellIdentifier = "CollectionCellReuseIdentifier"
     
@@ -34,7 +34,7 @@ class ViewController: UIViewController {
         let allProducts = GetProductQuery()
         productWatcher = apollo.watch(query: allProducts) { [weak self] result, error in
             guard error == nil,
-                let products = result?.data?.products else {
+                let products = result?.data?.productList?.products else {
                     print(error?.localizedDescription ?? "Error loading products")
                     return
             }

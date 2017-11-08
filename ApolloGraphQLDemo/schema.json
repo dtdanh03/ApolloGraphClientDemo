@@ -13,6 +13,29 @@
           "description": "Blog Application Schema Query Root",
           "fields": [
             {
+              "name": "productList",
+              "description": "List of all Products",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ProductList",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "ProductList",
+          "description": "List of Products",
+          "fields": [
+            {
               "name": "products",
               "description": "List of all Products",
               "args": [],

@@ -1,3 +1,4 @@
+github "Instagram/IGListKit" "3.1.1"
 github "apollographql/apollo-ios" "0.7.0"
 github "onevcat/Kingfisher" "4.2.0"
 github "stephencelis/SQLite.swift" "0.11.4"

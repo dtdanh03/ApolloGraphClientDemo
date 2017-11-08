@@ -9,6 +9,7 @@
 import UIKit
 import Apollo
 
+//let graphQLEndPoint = "https://api.staging.hk.zalora.net/v1/graphql"
 let graphQLEndPoint = "http://localhost:3000"
 let apollo = ApolloClient(url: URL(string: graphQLEndPoint)!)
 
@@ -21,7 +22,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         apollo.cacheKeyForObject = { $0["Id"] }
         return true
     }
-
-
 }
 
