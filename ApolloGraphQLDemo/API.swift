@@ -4,7 +4,7 @@ import Apollo
 
 public final class GetProductQuery: GraphQLQuery {
   public static let operationString =
-    "query GetProduct {\n  productList {\n    __typename\n    products {\n      __typename\n      Name\n      MainImageUrl\n    }\n  }\n}"
+    "query GetProduct {\n  productList {\n    __typename\n    products {\n      __typename\n      Id\n      Name\n      MainImageUrl\n    }\n  }\n}"
 
   public init() {
   }
@@ -78,6 +78,7 @@ public final class GetProductQuery: GraphQLQuery {
 
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("Id", type: .nonNull(.scalar(String.self))),
           GraphQLField("Name", type: .nonNull(.scalar(String.self))),
           GraphQLField("MainImageUrl", type: .nonNull(.scalar(String.self))),
         ]
@@ -88,8 +89,8 @@ public final class GetProductQuery: GraphQLQuery {
           self.snapshot = snapshot
         }
 
-        public init(name: String, mainImageUrl: String) {
-          self.init(snapshot: ["__typename": "Product", "Name": name, "MainImageUrl": mainImageUrl])
+        public init(id: String, name: String, mainImageUrl: String) {
+          self.init(snapshot: ["__typename": "Product", "Id": id, "Name": name, "MainImageUrl": mainImageUrl])
         }
 
         public var __typename: String {
@@ -98,6 +99,15 @@ public final class GetProductQuery: GraphQLQuery {
           }
           set {
             snapshot.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        public var id: String {
+          get {
+            return snapshot["Id"]! as! String
+          }
+          set {
+            snapshot.updateValue(newValue, forKey: "Id")
           }
         }
 

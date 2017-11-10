@@ -8,26 +8,37 @@
 
 import UIKit
 import Apollo
+import IGListKit
 
 class ViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
-    var products = [GetProductQuery.Data.ProductList.Product]()
+    var products = [ZProduct]()
     var productWatcher: GraphQLQueryWatcher<GetProductQuery>?
-    let cellIdentifier = "CollectionCellReuseIdentifier"
     
-    fileprivate let spacing: CGFloat = 2
+    
+    lazy var adapter: ListAdapter = {
+        let adapter = ListAdapter(updater: ListAdapterUpdater(), viewController: self, workingRangeSize: 0)
+        return adapter
+    }()
+    
+    fileprivate let spacing: CGFloat = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.delegate = self
-        collectionView.dataSource = self
+        adapter.collectionView = collectionView
+        adapter.dataSource = self
         collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.minimumLineSpacing = spacing
             layout.minimumInteritemSpacing = spacing
         }
         loadMockData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
     }
     
     func loadMockData() {
@@ -38,40 +49,26 @@ class ViewController: UIViewController {
                     print(error?.localizedDescription ?? "Error loading products")
                     return
             }
-            self?.products = products.flatMap { $0 }
-            self?.collectionView.reloadData()
+            self?.products = products.flatMap() { ZProduct($0!) }
+            self?.adapter.reloadData(completion: nil)
         }
     }
 }
 
-extension ViewController: UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+extension ViewController: ListAdapterDataSource {
+    func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
+        return [ZProductList(products)]
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return products.count
+    func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
+        return ProductSectionController()
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? ProductCollectionViewCell else {
-            return UICollectionViewCell()
-        }
-        let product = products[indexPath.item]
-        cell.updateView(with: product)
-        return cell
+    func emptyView(for listAdapter: ListAdapter) -> UIView? {
+        let emptyView = UIView()
+        emptyView.backgroundColor = .black
+        return emptyView
     }
-}
-
-extension ViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let size =  Int((collectionView.frame.width - spacing*2) / 2)
-        return CGSize(width: size, height: size)
-    }
-}
-
-extension ViewController: UICollectionViewDelegate {
-    
 }
 
 

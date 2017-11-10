@@ -13,6 +13,9 @@
 		2D7262F31FB2179700C4B238 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D7262F21FB2179700C4B238 /* Assets.xcassets */; };
 		2D7262F61FB2179700C4B238 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D7262F41FB2179700C4B238 /* LaunchScreen.storyboard */; };
 		2D7263021FB217F700C4B238 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7263011FB217F700C4B238 /* ProductCollectionViewCell.swift */; };
+		2DADCEA31FB4ABAE00FFF234 /* IGListKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DADCEA21FB4ABAE00FFF234 /* IGListKit.framework */; };
+		2DADCEA81FB4B64500FFF234 /* ZProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DADCEA71FB4B64500FFF234 /* ZProduct.swift */; };
+		2DADCEAA1FB4B81000FFF234 /* ProductSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DADCEA91FB4B81000FFF234 /* ProductSectionController.swift */; };
 		2DAF5C181FB2217D00A089D9 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAF5C151FB2217D00A089D9 /* API.swift */; };
 		2DAF5C221FB225D400A089D9 /* Apollo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DAF5C201FB225D400A089D9 /* Apollo.framework */; };
 		2DAF5C231FB225D400A089D9 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DAF5C211FB225D400A089D9 /* Kingfisher.framework */; };
@@ -27,6 +30,9 @@
 		2D7262F51FB2179700C4B238 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2D7262F71FB2179700C4B238 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2D7263011FB217F700C4B238 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		2DADCEA21FB4ABAE00FFF234 /* IGListKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IGListKit.framework; path = Carthage/Build/iOS/IGListKit.framework; sourceTree = "<group>"; };
+		2DADCEA71FB4B64500FFF234 /* ZProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZProduct.swift; sourceTree = "<group>"; };
+		2DADCEA91FB4B81000FFF234 /* ProductSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProductSectionController.swift; path = ../../../../../Applications/ProductSectionController.swift; sourceTree = "<group>"; };
 		2DAF5C151FB2217D00A089D9 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		2DAF5C161FB2217D00A089D9 /* schema.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
 		2DAF5C171FB2217D00A089D9 /* GetProducts.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetProducts.graphql; sourceTree = "<group>"; };
@@ -41,6 +47,7 @@
 			files = (
 				2DAF5C221FB225D400A089D9 /* Apollo.framework in Frameworks */,
 				2DAF5C231FB225D400A089D9 /* Kingfisher.framework in Frameworks */,
+				2DADCEA31FB4ABAE00FFF234 /* IGListKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +77,7 @@
 				2D7263011FB217F700C4B238 /* ProductCollectionViewCell.swift */,
 				2D7262EB1FB2179700C4B238 /* AppDelegate.swift */,
 				2D7262ED1FB2179700C4B238 /* ViewController.swift */,
+				2DADCEA91FB4B81000FFF234 /* ProductSectionController.swift */,
 				2DAF5C191FB2218200A089D9 /* GraphQL */,
 				2D7263031FB2180D00C4B238 /* SupportingFiles */,
 			);
@@ -93,6 +101,7 @@
 				2DAF5C151FB2217D00A089D9 /* API.swift */,
 				2DAF5C171FB2217D00A089D9 /* GetProducts.graphql */,
 				2DAF5C161FB2217D00A089D9 /* schema.json */,
+				2DADCEA71FB4B64500FFF234 /* ZProduct.swift */,
 			);
 			name = GraphQL;
 			sourceTree = "<group>";
@@ -100,6 +109,7 @@
 		2DAF5C1F1FB225D400A089D9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2DADCEA21FB4ABAE00FFF234 /* IGListKit.framework */,
 				2DAF5C201FB225D400A089D9 /* Apollo.framework */,
 				2DAF5C211FB225D400A089D9 /* Kingfisher.framework */,
 			);
@@ -198,6 +208,7 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Apollo.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/IGListKit.framework",
 			);
 			outputPaths = (
 			);
@@ -214,7 +225,9 @@
 			files = (
 				2D7262EE1FB2179700C4B238 /* ViewController.swift in Sources */,
 				2D7263021FB217F700C4B238 /* ProductCollectionViewCell.swift in Sources */,
+				2DADCEAA1FB4B81000FFF234 /* ProductSectionController.swift in Sources */,
 				2DAF5C181FB2217D00A089D9 /* API.swift in Sources */,
+				2DADCEA81FB4B64500FFF234 /* ZProduct.swift in Sources */,
 				2D7262EC1FB2179700C4B238 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

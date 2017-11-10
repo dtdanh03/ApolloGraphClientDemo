@@ -1,6 +1,7 @@
 query GetProduct {
 productList {
 products {
+Id
 Name
 MainImageUrl
 }

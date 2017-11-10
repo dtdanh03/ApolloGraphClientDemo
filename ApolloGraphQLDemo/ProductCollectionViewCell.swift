@@ -13,8 +13,8 @@ class ProductCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     
-    func updateView(with product: GetProductQuery.Data.ProductList.Product) {
-        imageView.kf.setImage(with: URL(string: product.mainImageUrl))
-        nameLabel.text = product.name
+    func updateView(with product: ZProduct) {
+        imageView.kf.setImage(with: URL(string: product.data.mainImageUrl))
+        nameLabel.text = product.data.name
     }
 }
