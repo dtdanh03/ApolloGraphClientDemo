@@ -10,7 +10,7 @@ import UIKit
 import Apollo
 
 //let graphQLEndPoint = "https://api.staging.hk.zalora.net/v1/graphql"
-let graphQLEndPoint = "http://localhost:3000"
+let graphQLEndPoint = "https://test-graphql-server.herokuapp.com/"
 let apollo = ApolloClient(url: URL(string: graphQLEndPoint)!)
 
 @UIApplicationMain
